@@ -8,15 +8,46 @@
 </head>
 
 <body>
+
+<div class="panel-body">
+
+            <!-- Here we create an HTML Form for handling the inputs-->
+            <form role="form">
+
+              <!-- Here we create the text box for capturing the search term-->
+              <div class="form-group">
+                <label for="search">Search Term:</label>
+                <input type="text" class="form-control" id="search-term">
+              </div>
+
+              <!-- Here we capture the number of records that the user wants to retrieve  -->
+              <div class="form-group">
+                <label for="pwd">Number of Records to Retrieve:</label>
+                <select class="form-control" id="num-records-select">
+							<option value="1">1</option>
+							<!-- Setting the option for 5 as default -->
+							<option value="5" selected>5</option>
+							<option value="10">10</option>
+						</select>
+              </div>
+
+
+              <!-- Here we have our final submit button -->
+              <button type="submit" class="btn btn-default" id="run-search"><i class="fa fa-search"></i> Search</button>
+              <button type="button" class="btn btn-default" id="clear-all"><i class="fa fa-trash"></i> Clear Results</button>
+
+            </form>
+          </div>
+
  <button data-food="pizza" data-still="still" data-state="still" data-animate="animate" class="gif">Cowabunga Dude!</button>
- <button data-food="tart">Tarts</button>
- <button data-food="apple">How about them apples</button>
- <button data-food="pie">No better time for Pie</button>
- <button data-food="shrimp">Fried Shrimp, Boiled Shrimp, Grilled Shrimp...</button>
- <button data-food="butter">Butter me Up!</button>
-  <button data-food="funnel+cake">Funnel Cakes are fun</button>
-  <button data-food="croquembouche">Some French Flavor</button>
-  <button data-food="tarte+tatin">More French</button>
+ <button data-food="tart" data-still="still" data-state="still" data-animate="animate" class="gif">Tarts</button>
+ <button data-food="apple" data-still="still" data-state="still" data-animate="animate" class="gif">How about them apples</button>
+ <button data-food="pie" data-still="still" data-state="still" data-animate="animate" class="gif">No better time for Pie</button>
+ <button data-food="shrimp" data-still="still" data-state="still" data-animate="animate" class="gif">Fried Shrimp, Boiled Shrimp, Grilled Shrimp...</button>
+ <button data-food="butter" data-still="still" data-state="still" data-animate="animate" class="gif">Butter me Up!</button>
+  <button data-food="funnel+cake" data-still="still" data-state="still" data-animate="animate" class="gif">Funnel Cakes are fun</button>
+  <button data-food="croquembouche" data-still="still" data-state="still" data-animate="animate" class="gif">Some French Flavor</button>
+  <button data-food="tarte+tatin" data-still="still" data-state="still" data-animate="animate" class="gif">More French</button>
 <div id="gifs-appear-here">
 </div>
 
