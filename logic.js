@@ -36,36 +36,45 @@ $(function() {
                 var foodImg = $("<img>");
                 foodImg.attr("class", "food-image"); //first we're creating a class and then naming it
                 foodImg.attr("index", i);
-                foodImg.attr("src", results[i].images.fixed_height.url);
+                foodImg.attr("src", results[i].images.fixed_height_still.url);
                 gifDiv.prepend(foodImg);
                 gifDiv.prepend(p);
 
                 $("#gifs-appear-here").prepend(gifDiv);
-                stillArr.push(results[i].images.fixed_height_still.url);
+
+                //stillArr.push(results[i].images.fixed_height_still.url);
                 animateArr.push(results[i].images.fixed_height.url);
 
 
             }
-            $(".food-image").on("click", function() {
-                console.log($(this).attr("index")); //this shows an index for our image in the console. we can use this image to go betwen still and animate when clicked.
-                var state = $(this).attr("data-state");
-                var still = $(this).attr("data-still");
-                var animate = $(this).attr("data-animate");
-                if (state === "still") {
-                    $(this).attr({
-                        "index": [i],
-                        'src': animateArr[i],
-                        "data-state": "animate",
-                    });
-                } else {
-                    $(this).attr({
-                        "index": [i],
-                        'src': stillArr[i],
-                        "data-state": "still"
-                    });
-                }
 
+
+  $(".food-image").on("click", function() {
+             foodImg.attr("src", results[i].images.fixed_height.url);   
+                console.log($(this).attr("data-state")); 
             });
+
+            // $(".food-image").on("click", function() {
+            //     console.log($(this).attr("index")); //this shows an index for our image in the console. we can use this image to go betwen still and animate when clicked.
+            //     var state = $(this).attr("data-state");
+            //     var still = $(this).attr("data-still");
+            //     var animate = $(this).attr("data-animate");
+                
+            //     if (state === "still") {
+            //         $(this).attr({
+            //             "index": [i],
+            //             'src': animateArr[i],
+            //             "data-state": "animate",
+            //         });
+            //     } else {
+            //         $(this).attr({
+            //             "index": [i],
+            //             'src': stillArr[i],
+            //             "data-state": "still"
+            //         });
+            //     }
+
+            // });
 
 
             console.log("response", response);
@@ -106,7 +115,7 @@ $(function() {
 //     $("#gifs-appear-here").empty();
 
 //     //grabs the text the user typed into search and stores it in variable
-//     searchTerm = $("search-term").val().trim();
+//     searchTerm = $("#search-term").val().trim();
 //     var searchQueryUrl = "http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 
@@ -117,9 +126,12 @@ $(function() {
 // });
 
 $("#run-search").on("click", function() {
-            var search = $(this).val().trim();
+            var search = $("#search-term").val().trim();
+            console.log("our search var", search)
             var searchQueryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=dc6zaTOxFJmzC&limit=10";
-
+            
+            console.log("our search query url", searchQueryURL);
+           
             $.ajax({
                     url: searchQueryURL,
                     method: "GET"
@@ -142,8 +154,8 @@ $("#run-search").on("click", function() {
                             gifDiv.prepend(p);
 
                             $("#gifs-appear-here").prepend(gifDiv);
-                            stillArr.push(results[i].images.fixed_height_still.url);
-                            animateArr.push(results[i].images.fixed_height.url);
+                            // stillArr.push(results[i].images.fixed_height_still.url);
+                            // animateArr.push(results[i].images.fixed_height.url);
 
 };
                         });
